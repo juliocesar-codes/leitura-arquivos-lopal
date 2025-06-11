@@ -12,6 +12,8 @@ import br.dev.julio.tarefas_ds1ta.model.Funcionario;
 import br.dev.julio.tarefas_ds1ta.model.Tarefa;
 import br.dev.julio.tarefas_ds1ta.ui.FuncionarioFrame;
 import br.dev.julio.tarefas_ds1ta.ui.FuncionariosListaFrame;
+import br.dev.julio.tarefas_ds1ta.ui.GerenciamentoDeTarefas;
+import br.dev.julio.tarefas_ds1ta.ui.TarefaFrame;
 
 public class Main {
 	
@@ -22,7 +24,10 @@ public class Main {
 		//FuncionarioDAO dao = new FuncionarioDAO(null);
 		//dao.getFuncionarios();
 		
-		new FuncionariosListaFrame();
+		//new TarefaFrame(null);
+		
+		new GerenciamentoDeTarefas(null);
+		//new FuncionariosListaFrame();
 		//new FuncionarioFrame();
 		
 //		UUID uuid = UUID.randomUUID();

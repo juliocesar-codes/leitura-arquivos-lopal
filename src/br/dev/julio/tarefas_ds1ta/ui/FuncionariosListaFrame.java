@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -17,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import br.dev.julio.tarefas_ds1ta.dao.FuncionarioDAO;
 import br.dev.julio.tarefas_ds1ta.model.Funcionario;
 
-public class FuncionariosListaFrame {
+public class FuncionariosListaFrame{
 	
 	private JLabel labelTitulo;
 	private JButton btnNovo;
@@ -28,15 +30,15 @@ public class FuncionariosListaFrame {
 	
 	private String[] colunas = {"CÓDIGO", "NOME DO FUNCIONÁRIO", "CARGO"};
 	
-	public FuncionariosListaFrame() {
-		criarTela();
+	public FuncionariosListaFrame(JFrame tela) {
+		criarTela(tela);
 	}
 	
-	private void criarTela() {
+	private void criarTela(JFrame parent) {
 		
-		JFrame tela = new JFrame("Lista de funcionários");
+		JDialog tela = new JDialog(parent, true);
 		tela.setSize(600, 500);
-		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		tela.setResizable(false);
 		tela.setLayout(null);
 		tela.setLocationRelativeTo(null);
@@ -61,7 +63,7 @@ public class FuncionariosListaFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new FuncionarioFrame(tela);
+				new FuncionarioFrame(parent);
 				carregarDados();
 				
 			}

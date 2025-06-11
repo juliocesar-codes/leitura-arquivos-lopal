@@ -45,10 +45,10 @@ public class FuncionarioDAO {
 	}
 	
 	public List<Funcionario> getFuncionarios() {
-	    List<Funcionario> funcionarios = new ArrayList<>(); // Initialize the list here
+	    List<Funcionario> funcionarios = new ArrayList<>(); 
 
 	    try {
-	        String linha = ""; // Initialize 'linha' outside the loop, as you have
+	        String linha = "";
 	        
 	        while ((linha = br.readLine()) != null) { 
 	            String[] funcionarioVetor = linha.split(",");
@@ -62,8 +62,7 @@ public class FuncionarioDAO {
 	                funcionario.setSetor(funcionarioVetor[3]); 
 	                funcionarios.add(funcionario);
 	            } else {
-	               
-	                System.err.println("Linha malformada ignorada: " + linha);
+	              
 	            }
 	        }
 	    } catch (Exception e) {
