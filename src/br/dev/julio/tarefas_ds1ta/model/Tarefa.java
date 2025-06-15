@@ -1,12 +1,13 @@
 package br.dev.julio.tarefas_ds1ta.model;
 
+import java.awt.Toolkit;
 import java.time.LocalDate;
 
 public class Tarefa {
 
 	private String nome;
 	private String descricao;
-	private LocalDate dataInicio;
+	private Toolkit dataInicio;
 	private int prazo;
 	private LocalDate dataPrevisaoDeEntrega;
 	private LocalDate dataEntrega;
@@ -38,12 +39,12 @@ public class Tarefa {
 		this.descricao = descricao;
 	}
 
-	public LocalDate getDataInicio() {
+	public Toolkit getDataInicio() {
 		return dataInicio;
 	}
 
-	public void setDataInicio(LocalDate dataInicio) {
-		this.dataInicio = dataInicio;
+	public void setDataInicio(Toolkit toolkit) {
+		this.dataInicio = toolkit;
 	}
 
 	public int getPrazo() {
@@ -84,6 +85,16 @@ public class Tarefa {
 
 	public void setResponsavel(Funcionario responsavel) {
 		this.responsavel = responsavel;
+	}
+
+	public Object getMatricula() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static char[] size() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
