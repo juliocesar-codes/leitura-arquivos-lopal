@@ -55,6 +55,7 @@ public class GerenciamentoDeTarefas {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				new TarefaListaFrame(tela);
 				
 			}
 		});

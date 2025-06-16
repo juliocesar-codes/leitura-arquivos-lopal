@@ -25,10 +25,10 @@ public class Main {
 		//FuncionarioDAO dao = new FuncionarioDAO(null);
 		//dao.getFuncionarios();
 		
-		new TarefaFrame(null);
-		new TarefaListaFrame(null);
+		//new TarefaFrame(null);
+		//new TarefaListaFrame(null);
 		
-		//new GerenciamentoDeTarefas(null);
+		new GerenciamentoDeTarefas(null);
 		//new FuncionariosListaFrame(null);
 		//new FuncionarioFrame();
 		

@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -23,6 +24,7 @@ import br.dev.julio.tarefas_ds1ta.model.Tarefa;
 public class TarefaListaFrame {
 	private JLabel labelTitulo;
 	private JButton btnNovo;
+	private JButton btnSair;
 	
 	private JTable tabelaTarefas;
 	private DefaultTableModel modelTarefas;
@@ -58,6 +60,9 @@ private void criarTela(JFrame parent) {
 		btnNovo = new JButton("Novo");
 		btnNovo.setBounds(10, 410, 150, 40);
 		
+		btnSair = new JButton("Sair");
+		btnSair.setBounds(400, 410, 150, 40);
+		
 btnNovo.addActionListener(new ActionListener() {
 			
 			@Override
@@ -71,6 +76,18 @@ btnNovo.addActionListener(new ActionListener() {
 		painel.add(labelTitulo);
 		painel.add(scroll);
 		painel.add(btnNovo);
+		painel.add(btnSair);
+		
+btnSair.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int resposta = JOptionPane.showConfirmDialog(tela, "Sair do sistema?");
+				if (resposta == 0) {
+					tela.dispose();
+				}
+			}
+		});
 		
 		
 		tela.setVisible(true);
