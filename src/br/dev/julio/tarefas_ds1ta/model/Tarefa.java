@@ -3,6 +3,8 @@ package br.dev.julio.tarefas_ds1ta.model;
 import java.awt.Toolkit;
 import java.time.LocalDate;
 
+import br.dev.julio.tarefas_ds1ta.utils.Utils;
+
 public class Tarefa {
 
 	private String nome;
@@ -13,14 +15,22 @@ public class Tarefa {
 	private LocalDate dataEntrega;
 	private Status status;
 	private Funcionario responsavel;
+	private String matricula;
 	
-	public Tarefa() {
-		System.out.println("Criando uma tarefa...");
-	}
 	
 	public Tarefa(String nome) {
-		System.out.println("Criando a tarefa " + nome);
 		this.nome = nome;
+		this.matricula = Utils.gerarUUID8();
+	}
+	
+	public Tarefa(String nome, String cargo) {
+		this.nome = nome;
+		this.prazo = prazo;
+		this.matricula = Utils.gerarUUID8();
+	}
+	
+	public Tarefa() {
+		this.matricula = Utils.gerarUUID8();
 	}
 
 	public String getNome() {
@@ -91,10 +101,20 @@ public class Tarefa {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
 
 	public static char[] size() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return matricula + "," + nome + "," + responsavel + "\n";
 	}
 
 }

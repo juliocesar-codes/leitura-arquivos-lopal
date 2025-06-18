@@ -1,16 +1,19 @@
 package br.dev.julio.tarefas_ds1ta.ui;
 
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 
@@ -73,9 +76,27 @@ public class TarefaFrame {
 		
 		JLabel labelResponsavel = new JLabel("Responsável:");
 		labelResponsavel.setBounds(10, 375, 150, 30);
+
 		List<Funcionario> funcionarios = new FuncionarioDAO(null).getFuncionarios();
-		comboFuncionarios = new JComboBox<>(funcionarios.toArray(new Funcionario[0]));
-        comboFuncionarios.setBounds(10, 405, 200, 30);
+		comboFuncionarios = new JComboBox<>(funcionarios.toArray(new Funcionario[0])); // Use new Funcionario[0] para evitar tamanho fixo
+
+		// Personaliza a exibição para mostrar apenas o nome
+		comboFuncionarios.setRenderer(new DefaultListCellRenderer() {
+		    @Override
+		    public Component getListCellRendererComponent(
+		        JList<?> list, Object value, int index, 
+		        boolean isSelected, boolean cellHasFocus
+		    ) {
+		        super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+		        if (value instanceof Funcionario) {
+		            Funcionario func = (Funcionario) value;
+		            setText(func.getNome()); // Exibe apenas o nome
+		        }
+		        return this;
+		    }
+		});
+
+		comboFuncionarios.setBounds(10, 405, 200, 30);
         
         JButton buttonSalvar = new JButton("Salvar");
         buttonSalvar.setBounds(10, 460, 170, 50);
